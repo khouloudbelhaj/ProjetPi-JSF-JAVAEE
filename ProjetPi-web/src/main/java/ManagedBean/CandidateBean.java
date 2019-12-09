@@ -1,6 +1,10 @@
 package ManagedBean;
 
+import java.awt.print.Book;
+import java.io.IOException;
 import java.io.Serializable;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,6 +15,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
+
 
 import Service.CandidatService;
 import Service.EnterpriseService;
@@ -29,8 +34,12 @@ public class CandidateBean implements Serializable {
 	private int gender;
 	private String imageUrl;
 	private String criteria;
+	private String skillDesignation;
+	private float skillRating;
+	private int skillId;
 	private Candidate viewingCandidate=null;
 	private Company viewingCompany=null;
+	
 
 	public static Candidate LOGGEDIN_CANDIDATE=null;
 	
@@ -170,6 +179,32 @@ public class CandidateBean implements Serializable {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
+
+	public String getSkillDesignation() {
+		return skillDesignation;
+	}
+
+	public void setSkillDesignation(String skillDesignation) {
+		this.skillDesignation = skillDesignation;
+	}
+
+	public float getSkillRating() {
+		return skillRating;
+	}
+
+	public void setSkillRating(float skillRating) {
+		this.skillRating = skillRating;
+	}
+
+	public int getSkillId() {
+		return skillId;
+	}
+
+	public void setSkillId(int skillId) {
+		this.skillId = skillId;
+	}
+
 
 	private String lastName;
 	private String password;
@@ -198,6 +233,7 @@ public class CandidateBean implements Serializable {
 		this.companies = companies;
 	}
 
+	
 	@PostConstruct
 	public void getAllCandidates() {
 		candidates = service.getCandidates(-1);
@@ -253,6 +289,18 @@ public class CandidateBean implements Serializable {
 		loadCandidate();
 	}
 	
+	public String beforeEditingSkill(int skillId)
+	{
+		this.skillId=skillId;
+		return "/resources/editSkill?faces-redirect=true";
+	}
+	public String editSkillAction()
+	{
+		service.editSkill(skillId, skillDesignation, skillRating);
+		loadCandidate();
+		System.out.println("hello from edit action");
+		return "/resources/CandidateProfile?faces-redirect=true";
+	}
 	public void onProfileLoad()
 	{
 		loadCandidate();
@@ -339,5 +387,6 @@ public class CandidateBean implements Serializable {
 	public void loadCompany()
 	{
 		viewingCompany=enterpriseService.getEnterprise(viewingCompany.getCompanyId());
+		
 	}
 }

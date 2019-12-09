@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<ui:include src="/resources/Template/Header.xhtml" />
+<body>
+	<div class="container-fluid" style="padding:3rem; width:50%;">
+		<h:form>
+			<div class="form-group">
+				<label for="designation">Designation</label>
+				<h:inputText class="u-color-black" id="designation"
+					value="#{candidateBean.skillDesignation}" />
+			</div>
+			  <div class="form-group">
+				<label for="rating">Rating</label>
+				<h:inputText class="u-color-black" id="rating"
+					value="#{candidateBean.skillRating}" />
+			</div>  
+			<h:commandLink action="#{candidateBean.editSkillAction()}" class="btn btn-primary">Submit
+			</h:commandLink>
+		</h:form>
+	</div>
+	<ui:include src="/resources/Template/Footer.xhtml" />
+
+</body>
+</html>

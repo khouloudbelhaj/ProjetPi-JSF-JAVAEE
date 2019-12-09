@@ -226,7 +226,7 @@
 															</h6>
 														</li>
 
-														<li class="col-sm-9">
+														<li class="col-sm-8">
 
 															<div class="progress">
 
@@ -235,7 +235,16 @@
 																	aria-valuemax="100" style="width: #{value.rating}%"></div>
 															</div>
 														</li>
+														<li class="col-sm-1">
+															<h:form>
+															<h:commandLink action="#{candidateBean.beforeEditingSkill(value.skillId)}"  >
+															<i class="fa fa-edit"></i>
+															</h:commandLink>
+															</h:form>
+															
+														</li>
 													</ul>
+													
 												</ui:repeat>
 
 
@@ -265,10 +274,12 @@
 																<i class="fa fa-paper-plane-o"></i>
 																<h5>#{value.designation}</h5>
 																<p>#{value.description}</p>
-																<span>
-																	<h:outputText value="#{value.startDate}">
-<f:convertDateTime pattern="yyyy-MM-dd" /></h:outputText></span> - <span><h:outputText value="#{value.endDate}"><f:convertDateTime pattern="yyyy-MM-dd" /></h:outputText></span>
-																
+																<span> <h:outputText value="#{value.startDate}">
+																		<f:convertDateTime pattern="yyyy-MM-dd" />
+																	</h:outputText></span> - <span><h:outputText value="#{value.endDate}">
+																		<f:convertDateTime pattern="yyyy-MM-dd" />
+																	</h:outputText></span>
+
 															</div>
 															<!-- end .uou-block-8d -->
 														</div>
@@ -291,6 +302,9 @@
 			</div>
 		</div>
 	</div>
+
+	
+
 	<ui:include src="/resources/Template/Footer.xhtml" />
 </body>
 </html>

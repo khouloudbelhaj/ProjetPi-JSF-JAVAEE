@@ -17,4 +17,5 @@ public interface ICandidatServiceRemote {
 	public void cancelApplicaiton(int applicationId,int offerId,int candidateId);
 	public void subscribe(int enterpriseId,int candidateId);
 	public void unsubscribe(int enterpriseId,int candidateId);
+	public void editSkill(int skillId,String designation,float rating);
 }

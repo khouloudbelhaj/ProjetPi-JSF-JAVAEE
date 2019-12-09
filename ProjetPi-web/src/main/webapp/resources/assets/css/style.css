@@ -3229,5 +3229,8 @@ CANVAS PAGE STYLE
 }
 @media (max-width: 767px) {
 }
+.u-color-black {
+	color:black !important;
+}
 
 

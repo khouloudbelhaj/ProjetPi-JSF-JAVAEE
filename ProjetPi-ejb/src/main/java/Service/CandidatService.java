@@ -149,4 +149,11 @@ public class CandidatService implements ICandidatServiceRemote {
 		co.getSubscribers().remove(c);
 		
 	}
+
+	@Override
+	public void editSkill(int skillId, String designation, float rating) {
+		Skill s = em.find(Skill.class, skillId);
+		s.setDesignation(designation);
+		s.setRating(rating);
+	}
 }

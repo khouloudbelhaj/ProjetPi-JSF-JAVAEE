@@ -8,7 +8,7 @@
 <ui:include src="/resources/Template/Header.xhtml" />
 <body>
 
-	<div class="container" style="background-color: white;">
+	<div class="container" style="background-color: white; color:black !important;">
 		<h:form id="form">
 			<h:panelGroup>
 				<h:form id="form">
@@ -18,19 +18,19 @@
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<label for="firstName">First Name</label>
-							<h:inputText id="firstName" class="form-control"
+							<h:inputText id="firstName" class="form-control u-color-black"
 								value="#{candidateBean.firstName}" />
 						</div>
 						<div class="form-group col-md-6">
 							<label for="lastName">First Name</label>
-							<h:inputText class="form-control" id="lastName"
+							<h:inputText class="form-control u-color-black" id="lastName"
 								value="#{candidateBean.lastName}" />
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="DateOfBirth">Date Of Birth Name</label>
-						<h:inputText value="#{candidateBean.dateOfBirthday}">
+						<h:inputText class="u-color-black" value="#{candidateBean.dateOfBirthday}">
 							<f:convertDateTime pattern="yyyy-MM-dd" />
 						</h:inputText>
 					</div>
@@ -40,30 +40,29 @@
 
 						<div class="form-group col-md-4">
 							<label for="gender">Gender</label>
-							<h:inputText id="gender" value="#{candidateBean.gender}" />
+							<h:inputText class="u-color-black" id="gender" value="#{candidateBean.gender}" />
 						</div>
 						<div class="form-group col-md-4">
 							<label for="address">Address</label>
-							<h:inputText id="address" value="#{candidateBean.address}" />
+							<h:inputText class="u-color-black" id="address" value="#{candidateBean.address}" />
 						</div>
 						<div class="form-group col-md-4">
 							<label for="iamgeurl">Image URL</label>
-							<h:inputText id="imageurl" value="#{candidateBean.imageUrl}" />
+							<h:inputText class="u-color-black" id="imageurl" value="#{candidateBean.imageUrl}" />
 						</div>
 					</div>
 
 					<h:outputText value="bio" />
-					<h:inputText value="#{candidateBean.bio}" />
+					<h:inputText class="u-color-black" value="#{candidateBean.bio}" />
 					<h:outputText value="email" />
-					<h:inputText value="#{candidateBean.email}" />
-					<h:outputText value="profession" />
-					<h:outputText value="phonenumber" />
-					<h:inputText value="#{candidateBean.phoneNumber}" />
-					<h:inputText value="#{candidateBean.profession}" />
+					<h:inputText class="u-color-black" value="#{candidateBean.email}" />
+					<h:outputText class="u-color-black" value="profession" />
+					
+					<h:inputText class="u-color-black" value="#{candidateBean.profession}" />
 					<h:outputText value="username" />
-					<h:inputText value="#{candidateBean.username}" />
+					<h:inputText class="u-color-black" value="#{candidateBean.username}" />
 					<h:outputText value="password" />
-					<h:inputText value="#{candidateBean.password}" />
+					<h:inputSecret class="u-color-black" value="#{candidateBean.password}" />
 
 
 
