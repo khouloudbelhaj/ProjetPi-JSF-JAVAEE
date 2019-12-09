@@ -35,6 +35,10 @@
       <class>model.Experience</class>
       <class>model.Offer</class>
       <class>model.Skill</class>
+      <class>model.Comment</class>
+      <class>model.Message</class>
+      <class>model.Post</class>
+      <class>model.Notification</class>
 	  
       <properties>
          <!-- Properties for Hibernate -->
