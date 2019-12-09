@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+	  xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      template="/template/template.xhtml"> 
+<ui:param name="page_name" value="Chating" />
+<ui:define name="menu">
+<ui:include src="/resources/Template/Header.xhtml" />
+
+<div Style="width:70%;margin-left:15%">
+<h:form>
+
+<h:dataTable value="#{notificationBean.ListeNotif(loginBean.user.userId)}" var="message" border="1">
+	<h:column>
+	    <f:facet name="header">
+	        <h:outputText value="content"/>
+	     </f:facet>
+	     <h:outputText value="#{message.content}"/>
+	     
+	</h:column>
+	
+	
+	<h:column>
+	<f:facet name="header">
+	<h:outputText value="destination"/>
+	</f:facet>
+	<h:outputText value="#{messageBean.username}"/>
+	
+	</h:column>
+	
+	<h:column>
+	<f:facet name="header">
+	<h:outputText value="Action"/>
+	</f:facet>
+	<h:commandLink rendered="#{notificationBean.typeNotification=='unaccepted'}" action="#{notificationBean.beFriend(message)}" value="Accept"/>
+	</h:column>
+	
+	
+	
+</h:dataTable>
+
+
+</div>
+<ui:include src="/resources/Template/Footer.xhtml" />
+</ui:define>
+</ui:composition>

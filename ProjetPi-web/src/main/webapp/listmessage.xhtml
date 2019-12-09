@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core"
+	  xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      template="/template/template.xhtml"> 
+<ui:param name="page_name" value="Chat" />
+<ui:define name="menu">
+<ui:include src="/resources/Template/Header.xhtml" />
+
+<div Style="width:70%;margin-left:15%">
+<h:form>
+<div style="width:250px">
+<h:graphicImage value="./resources/assets/images/proicon.jpg" style="width:100px;height:100px;"/>
+<h1 Style="color:white;float:right">#{messageBean.username}</h1>
+</div>
+
+<ui:repeat value="#{messageBean.ListeMessage(loginBean.user.userId,messageBean.destid)}" var="message" border="1">
+				        <h:panelGroup layout="block" class="comments-area"
+				style="text-align:left;padding-left: 70px;background-color:white">
+				        <div class="section-top-border">
+				        <p:poll interval="10" listener="#{messageBean.ListeMessage(loginBean.user.userId,messageBean.destid)}" update="@all"/>
+				<div class="row" >
+				  <div  style="float:left;width:80% ;margin:20px">
+				  
+					<div class="col-md-2">
+					    <h:graphicImage value="./resources/assets/images/proicon.jpg" style="width:80px;height:80px;margin-top:20px"/>
+					    
+					</div>
+					<div class="col-md-7 mt-sm-20" style="background-color:#38C2EB;border-radius: 20px;">
+					<h2><p><strong><h:link style="color:white" rendered="#{message.userId==loginBean.user.userId}" value="#{loginBean.user.username}" outcome="#"></h:link></strong></p></h2>
+					<h2><p><strong><h:link style="color:white" rendered="#{message.userId==messageBean.destid}" value="#{messageBean.username}" outcome="#"></h:link></strong></p></h2>
+						<p><h:link style="color:white" value="#{message.content}" outcome="#"></h:link></p>
+						<br></br><br></br>
+						<div class="row">
+							<div class="col-md-1">
+								<span class="ti-time" style="color: #ff7e5f;font-size: 50px;"/>
+							</div> 
+							
+							<h:column><h:commandButton   rendered="#{message.userId==loginBean.user.userId}" style="margin:5px;float:right" action="#{messageBean.supprimerMessage(message.messageId)}" value="Delete" 
+							class="click-btn btn btn-default text-uppercase btn_2"></h:commandButton></h:column>
+							<h:column>
+						<h:commandButton   rendered="#{message.userId==loginBean.user.userId}" style="margin:5px;float:right" action="#{messageBean.modifier(message)}" value="Update" class="click-btn btn btn-default text-uppercase btn_2">
+						</h:commandButton></h:column>
+	                    </div>
+			        </div>
+			        </div>
+				</div>
+			</div>
+			</h:panelGroup>
+		</ui:repeat>
+<h:panelGrid columns="3">
+	
+	
+	<h:inputText value="#{messageBean.content}" style="color:black"/>
+	<h:commandButton  class="btn btn-primary"  action="#{messageBean.addMessage(loginBean.user.userId,messageBean.destid)}" value="Send" />
+	<h:commandButton class="btn btn-primary"  action="#{messageBean.modifierMessage(messageBean.messageId)}" value="Modify" />
+</h:panelGrid>
+</h:form>
+
+</div>
+<ui:include src="/resources/Template/Footer.xhtml" />
+</ui:define>
+</ui:composition>
