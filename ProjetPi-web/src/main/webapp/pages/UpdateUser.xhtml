@@ -1,0 +1,166 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	template="/templates/temp.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+
+		<div class="wrapper wrapper-full-page">
+
+			<div class="page-header register-page header-filter" filter-color="black"
+				style="background-image: url(&quot;../../assets/img/register.jpg&quot;);">
+
+				<div class="container">
+
+					<div class="row">
+
+						<div class="col-md-10 ml-auto mr-auto">
+
+							<div class="card card-signup">
+
+								<h2 class="card-title text-center">Update User</h2>
+
+								<div class="card-body">
+
+									<div class="row">
+
+										<div class="col-md-5 ml-auto">
+
+											<div class="info info-horizontal">
+
+												<div class="icon icon-rose">
+													
+												</div>
+
+												
+											</div>
+
+											<div class="info info-horizontal">
+
+												<div class="icon icon-primary">
+												</div>
+
+												<div class="description">
+
+													<h4 class="info-title"></h4>
+
+													<p class="description"></p>
+												</div>
+											</div>
+
+											<div class="info info-horizontal">
+
+												<div class="icon icon-info">
+												</div>
+
+												<div class="description">
+
+													<h4 class="info-title"></h4>
+
+													<p class="description">.</p>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-5 mr-auto">
+
+											
+											<h:form styleClass="form">
+											
+											
+											
+															<div class="form-group has-default">
+
+														<div class="input-group">
+
+															<div class="input-group-prepend">
+																<span class="input-group-text"> 
+																</span>
+															</div>
+															<label>First name<h:inputText styleClass="form-control" value="#{userBean.name}" id="nom"></h:inputText>
+															<h:message for="nom"></h:message></label>
+														</div>
+													</div>
+													<div class="form-group has-default">
+
+														<div class="input-group">
+
+															<div class="input-group-prepend">
+																<span class="input-group-text"> 																</span>
+															</div>
+															<label>Last name<h:inputText styleClass="form-control" value="#{userBean.lastName}" id="prenom"></h:inputText>
+															<h:message for="prenom"></h:message></label>
+														</div>
+													</div>
+													
+													<div class="form-group has-default">
+
+														<div class="input-group">
+
+															<div class="input-group-prepend">
+																<span class="input-group-text"> </span>
+															</div>
+															<label>Password<h:inputSecret styleClass="form-control" value="#{userBean.password}" id="password"></h:inputSecret>
+															<h:message for="password"></h:message>
+															</label>
+															
+															
+
+														</div>
+													</div>
+
+												<div class="form-group has-default">
+
+													<div class="input-group">
+
+														<div class="input-group-prepend">
+															<span class="input-group-text"> 
+															</span>
+														</div>
+														<label>E-mail<h:inputText styleClass="form-control" value="#{userBean.email}" id="email"></h:inputText></label>
+													</div>
+													
+													</div>
+												
+											
+										<div class="form-group has-default">
+
+														<div class="input-group">
+
+															<div class="input-group-prepend">
+																<span class="input-group-text"> 																</span>
+															</div>
+															<label>
+															<h:selectOneMenu styleClass="selectpicker" data-style="btn btn-primary btn-round" value="#{userBean.role}">
+															
+															<f:selectItems value="#{dataBean.roles}" />
+															</h:selectOneMenu></label>
+														</div>
+													</div>
+
+									
+
+
+
+													<div class="text-center">
+														<h:commandButton value="Update Employe"
+															action="#{userBean.updateEmploye()}"
+															styleClass="btn btn-primary btn-round mt-4" />
+													</div>
+													
+											</h:form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

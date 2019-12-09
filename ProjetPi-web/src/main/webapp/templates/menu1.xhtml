@@ -1,0 +1,180 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<div class="sidebar" data-color="rose" data-background-color="black"
+			data-image="#{facesContext.externalContext.requestContextPath}/assets/img/sidebar-1.jpg">
+			<!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+
+			<div class="logo">
+				<a href="http://www.creative-tim.com/" class="simple-text logo-mini">
+					CT </a> <a href="http://www.creative-tim.com/"
+					class="simple-text logo-normal"> Creative Tim </a>
+			</div>
+
+			<div class="sidebar-wrapper">
+
+				<div class="user">
+
+					<div class="photo">
+						<img
+							src="#{facesContext.externalContext.requestContextPath}/assets/img/faces/avatar.jpg"
+							alt="" />
+					</div>
+
+					<div class="user-info">
+						<a data-toggle="collapse" href="#co1llapseExample" class="username">
+							<span><h:outputText
+					value="#{loginBean.user.lastName} #{loginBean.user.name}" /> <b class="caret" />
+						</span>
+						</a>
+
+						<div class="collapse" id="collapseExample">
+
+							<ul class="nav">
+
+								<li class="nav-item"><a class="nav-link" href="#"> <span
+										class="sidebar-mini"> MP </span> <span class="sidebar-normal">
+											My Profile </span>
+								</a></li>
+
+								<li class="nav-item"><a class="nav-link" href="#"> <span
+										class="sidebar-mini"> EP </span> <span class="sidebar-normal">
+											Edit Profile </span>
+								</a></li>
+
+								<li class="nav-item"><a class="nav-link" href="#"> <span
+										class="sidebar-mini"> S </span> <span class="sidebar-normal">
+											Settings </span>
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<ul class="nav">
+
+					<li class="nav-item active "><a class="nav-link"
+						href="#"> <i class="material-icons">dashboard</i>
+
+							<p>Dashboard</p>
+					</a></li>
+
+<!-- 					<li class="nav-item "><a class="nav-link" -->
+<!-- 						data-toggle="collapse" href="#pagesExamples"> <i -->
+<!-- 							class="material-icons">image</i> -->
+
+<!-- 							<p>	 -->
+<!-- 								Employees <b class="caret" /> -->
+<!-- 							</p> -->
+<!-- 					</a> -->
+
+<!-- 						<div class="collapse" id="pagesExamples"> -->
+
+<!-- 							<ul class="nav"> -->
+
+<!-- 								<li class="nav-item "><a class="nav-link" -->
+<!-- 									href="http://localhost:9080/pidev-jee-web/pages/administrator/AddEmployee.jsf"> <span class="sidebar-mini"> -->
+<!-- 											P </span> <span class="sidebar-normal">Add new a user</span> -->
+<!-- 								</a></li> -->
+
+<!-- 								<li class="nav-item "><a class="nav-link" -->
+<!-- 									href="http://localhost:9080/pidev-jee-web/pages/administrator/listemployees.jsf"> <span class="sidebar-mini"> -->
+<!-- 											RS </span> <span class="sidebar-normal">List the users </span> -->
+<!-- 								</a></li> -->
+								
+<!-- 								<li class="nav-item "><a class="nav-link" -->
+<!-- 									href="http://localhost:9080/pidev-jee-web/pages/administrator/listinactifusers.jsf"> <span class="sidebar-mini"> -->
+<!-- 											RS </span> <span class="sidebar-normal">List the inactif users </span> -->
+<!-- 								</a></li> -->
+
+								
+<!-- 							</ul> -->
+<!-- 						</div></li> -->
+						
+						
+						
+						
+
+<!-- 					<li class="nav-item "><a class="nav-link" -->
+<!-- 						data-toggle="collapse" href="#componentsExamples"> <i -->
+<!-- 							class="material-icons">apps</i> -->
+
+<!-- 							<p> -->
+<!-- 								Companies <b class="caret" /> -->
+<!-- 							</p> -->
+<!-- 					</a> -->
+
+<!-- 						<div class="collapse" id="componentsExamples"> -->
+
+<!-- 							<ul class="nav"> -->
+
+
+
+<!-- 								<li class="nav-item "><a class="nav-link" -->
+<!-- 									href="http://localhost:9080/pidev-jee-web/pages/employe/JoinCompany.jsf"> <span class="sidebar-mini"> -->
+<!-- 											GS </span> <span class="sidebar-normal"> Join A Company</span> -->
+<!-- 								</a></li> -->
+								
+<!-- 								<li class="nav-item "><a class="nav-link" -->
+<!-- 									href="http://localhost:9080/pidev-jee-web/pages/employe/JoinCompany.jsf"> <span class="sidebar-mini"> -->
+<!-- 											GS </span> <span class="sidebar-normal"> Join A Company</span> -->
+<!-- 								</a></li> -->
+
+							
+<!-- 							</ul> -->
+<!-- 						</div></li> -->
+						
+						
+						
+						
+					<li class="nav-item "><a class="nav-link"
+						data-toggle="collapse" href="#components1Examples"> <i
+							class="material-icons">apps</i>
+
+							<p>
+								Offers <b class="caret" />
+							</p>
+					</a>
+
+						<div class="collapse" id="components1Examples">
+
+							<ul class="nav">
+
+
+
+								<li class="nav-item "><a class="nav-link"
+									href="http://localhost:9080/pidev-jee-web/pages/employe/listoffersnotvalidated.jsf"> <span class="sidebar-mini">
+											GS </span> <span class="sidebar-normal"> List Offers To Validate </span>
+								</a></li>
+								
+								<li class="nav-item "><a class="nav-link"
+									href="http://localhost:9080/pidev-jee-web/pages/employe/listacceptedoffers.jsf"> <span class="sidebar-mini">
+											GS </span> <span class="sidebar-normal"> Accepted Offers</span>
+								</a></li>
+								
+								<li class="nav-item "><a class="nav-link"
+									href="http://localhost:9080/pidev-jee-web/pages/employe/listrefusedoffers.jsf"> <span class="sidebar-mini">
+											GS </span> <span class="sidebar-normal"> Refused Offers</span>
+								</a></li>
+								
+
+							
+							</ul>
+						</div></li>
+						
+						
+						
+						
+						
+
+					
+				</ul>
+			</div>
+		</div>
+</ui:composition>

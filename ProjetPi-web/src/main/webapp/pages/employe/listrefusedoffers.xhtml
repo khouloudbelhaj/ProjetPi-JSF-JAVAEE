@@ -1,0 +1,136 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	template="/templates/temp1.xhtml">
+	<ui:param name="page_name" value="Accueil" />
+	<ui:define name="content">
+		<div class="content">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-md-12">
+
+						<div class="card">
+
+							<div class="card-header card-header-primary card-header-icon">
+
+								<div class="card-icon">
+									<i class="material-icons">assignment</i>
+								</div>
+
+								<h4 class="card-title">Accepted Offers</h4>
+							</div>
+
+							<div class="card-body">
+	
+								<div class="toolbar">
+									<!--        Here you can write extra buttons/actions for the toolbar              -->
+								</div>
+								
+
+								<div class="material-datatables">
+								<h:form id="users">
+
+									
+									<h:dataTable value="#{offerBean.offerrefused}" var="offers"
+										id="datatables" styleClass="table table-striped table-no-bordered table-hover">
+										<h:column>
+											<f:facet name="header">
+												<h:outputText value="Job Offer" />
+											</f:facet>
+											<h:outputText value="#{offers.offer_Title}" />
+										</h:column>
+										<h:column>
+											<f:facet name="header">
+												<h:outputText value="Published At" />
+											</f:facet>
+											<h:outputText value="#{offers.offer_DatePublished}" />
+										</h:column>
+										<h:column>
+											<f:facet name="header">
+												<h:outputText value="Type Of Contract " />
+											</f:facet>
+											<h:outputText value="#{offers.offer_Contract_Type}" />
+										</h:column>
+										
+										<h:column>
+											<f:facet name="header">
+												<h:outputText value="Level Of Expertise" />
+											</f:facet>
+											<h:outputText value="#{offers.offer_Level_Of_Expertise}" />
+										</h:column>
+										
+										<h:column>
+											<f:facet name="header">
+												<h:outputText value="Offer Duration" />
+											</f:facet>
+											<h:outputText value="#{offers.offre_Duration}" />
+										</h:column>
+										
+											<h:column>
+											<f:facet name="header">
+												<h:outputText value="Reason of refusal" />
+											</f:facet>
+											<h:outputText value="#{offers.modifRefus}" />
+										</h:column>
+<!-- 										<h:column> -->
+<!-- 											<f:facet name="header"> -->
+<!-- 												<h:outputText value="Role" /> -->
+<!-- 											</f:facet> -->
+<!-- 											<h:outputText value="#{users.role}" /> -->
+<!-- 										</h:column> -->
+<!-- 					<h:column> -->
+<!-- 											<f:facet name="header"> -->
+<!-- 												<h:outputText value="Username" /> -->
+<!-- 											</f:facet> -->
+<!-- 											<h:outputText value="#{users.username}" /> -->
+<!-- 										</h:column> -->
+					
+					
+
+					
+									</h:dataTable>
+									</h:form>
+								</div>
+							</div>
+							<!-- end content-->
+						</div>
+						<!--  end card  -->
+						
+					</div>
+					<!-- end col-md-12 -->
+				</div>
+				<!-- end row -->
+				
+				
+			</div>
+			
+		</div>
+		
+
+	</ui:define>
+	<ui:define name="scripts">
+		<script>
+		    $(document).ready(function() {
+		      $('#employee>[id*="employee"]').DataTable({
+		        "pagingType": "full_numbers",
+		        "lengthMenu": [
+		          [10, 25, 50, -1],
+		          [10, 25, 50, "All"]
+		        ],
+		        responsive: true,
+		        language: {
+		          search: "_INPUT_",
+		          searchPlaceholder: "Search records",
+		        }
+		      });
+		    });
+		     
+		  </script>
+	</ui:define>
+</ui:composition>
