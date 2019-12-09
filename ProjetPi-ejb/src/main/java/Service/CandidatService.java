@@ -129,7 +129,7 @@ public class CandidatService implements ICandidatServiceRemote {
 		Candidate c = em.find(Candidate.class, candidateId);
 		Offer o = em.find(Offer.class, offerId);
 		c.getApplications().remove(a);
-		o.getApplications().remove(a);
+		//o.getApplications().remove(a);
 		em.remove(a);
 	}
 
