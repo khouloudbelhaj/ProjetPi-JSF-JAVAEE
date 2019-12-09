@@ -12,7 +12,10 @@
 
     <artifactId>ProjetPi-ear</artifactId>
     <packaging>ear</packaging>
-
+  
+  
+  
+  
     <name>ProjetPi: EAR Module</name>
 
     <url>http://wildfly.org</url>
