@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<f:metadata>
+	<!-- TODO add onViewingProfileAndLoad -->
+	<!-- <f:viewAction action="#{candidateBean.onViewingProfileLoad}" /> -->
+	<f:viewAction action="#{candidateBean.redirectLogin}" />
+</f:metadata>
+
+
+<ui:include src="/resources/Template/Header.xhtml" />
+<body>
+
+	<div class="compny-profile">
+		<!-- SUB Banner -->
+
+		<div class="profile-bnr user-profile-bnr">
+
+			<div class="container">
+
+				<div class="pull-left">
+
+
+					<h2>
+						<h:outputText value="#{candidateBean.viewingCandidate.firstName}" />
+						<h:outputText value="#{candidateBean.viewingCandidate.lastName}" />
+					</h2>
+
+					<h5>
+						<h:outputText value="#{candidateBean.viewingCandidate.profession}" />
+					</h5>
+				</div>
+<h1>sqh</h1>
+				<!-- Top Riht Button -->
+
+				<div class="right-top-bnr">
+
+					<div class="connect">
+						<a href="#." data-toggle="modal" data-target="#myModal"><i
+							class="fa fa-user-plus" /> Connect</a> <a href="#."><i
+							class="fa fa-share-alt" /> Share</a>
+
+						<div class="bt-ns">
+							<a href="#."><i class="fa fa-bookmark-o" /> </a> <a href="#."><i
+								class="fa fa-envelope-o" /> </a> <a href="#."><i
+								class="fa fa-exclamation" /> </a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal POPUP -->
+
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+
+				<div class="modal-dialog" role="document">
+
+					<div class="modal-content">
+
+						<div class="container">
+
+							<h6>
+								<a class="close" href="#." data-dismiss="modal"
+									aria-label="Close"><span aria-hidden="true">×</span></a> Send
+								Message
+							</h6>
+
+							<!-- Forms -->
+							<form action="#">
+
+								<ul class="row">
+
+									<li class="col-xs-6"><input type="text"
+										placeholder="First Name " /></li>
+
+									<li class="col-xs-6"><input type="text"
+										placeholder="Last Name" /></li>
+
+									<li class="col-xs-6"><input type="text"
+										placeholder="Country" /></li>
+
+									<li class="col-xs-6"><input type="text"
+										placeholder="Email" /></li>
+
+									<li class="col-xs-12"><textarea placeholder="Your Message"></textarea>
+									</li>
+
+									<li class="col-xs-12">
+										<button class="btn btn-primary">Send message</button>
+									</li>
+								</ul>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Profile Company Content -->
+
+		<div class="profile-company-content user-profile main-user"
+			data-bg-color="f5f5f5">
+
+			<div class="container">
+
+				<div class="row">
+
+					<!-- Tab Content -->
+
+					<div class="col-md-12">
+
+						<div class="tab-content">
+
+							<!-- PROFILE -->
+
+							<div id="profile" class="tab-pane fade in active">
+
+								<div class="row">
+
+									<!-- Col -->
+
+									<div class="col-md-4">
+
+										<!-- Professional Details -->
+
+										<div class="sidebar">
+
+											<h5 class="main-title">Professional Details</h5>
+
+											<div class="img-profile">
+												<h:graphicImage
+													value="https://localhost:44341/Content/Uploads/#{candidateBean.viewingCandidate.imageUrl}"
+													alt="#{candidateBean.viewingCandidate.imageUrl}"></h:graphicImage>
+
+											</div>
+
+											<div class="sidebar-information">
+
+												<ul class="single-category">
+
+													<li class="row">
+
+														<h6 class="title col-xs-6">Name</h6> <span
+														class="subtitle col-xs-6"><h:outputText
+																value="#{candidateBean.viewingCandidate.firstName}" />
+															<h:outputText
+																value="#{candidateBean.viewingCandidate.lastName}" /></span>
+													</li>
+
+													<li class="row">
+
+														<h6 class="title col-xs-6">Date Of Birth</h6> <span
+														class="subtitle col-xs-6"><h:outputText
+																value="#{candidateBean.viewingCandidate.dateOfBirthday}" /></span>
+													</li>
+
+													<li class="row">
+
+														<h6 class="title col-xs-6">Profession</h6> <span
+														class="subtitle col-xs-6"><h:outputText
+																value="#{candidateBean.viewingCandidate.profession}" /></span>
+													</li>
+
+													<li class="row">
+
+														<h6 class="title col-xs-6">Gender</h6> <span
+														class="subtitle col-xs-6"><h:outputText
+																value="#{candidateBean.viewingCandidate.gender}" /></span>
+													</li>
+
+													<li class="row">
+
+														<h6 class="title col-xs-6">Address</h6> <span
+														class="subtitle col-xs-6"><h:outputText
+																value="#{candidateBean.viewingCandidate.address}" /></span>
+													</li>
+
+													<li class="row">
+
+														<h6 class="title col-xs-6">Email</h6> <span
+														class="subtitle col-xs-6"><h:outputText
+																value="#{candidateBean.viewingCandidate.email}" /></span>
+													</li>
+
+
+												</ul>
+											</div>
+										</div>
+
+
+
+
+										<!-- Social Profiles -->
+
+
+									</div>
+
+									<div class="col-md-8">
+										<!-- Skills -->
+
+										<div class="sidebar">
+
+											<h5 class="main-title">About</h5>
+
+											<p>
+												<h:outputText value="#{candidateBean.viewingCandidate.bio}" />
+											</p>
+
+											<h5 class="main-title">Skills</h5>
+
+											<div class="job-skills">
+
+												<ui:repeat
+													value="#{candidateBean.viewingCandidate.skills.toArray()}"
+													var="value">
+													<ul class="row">
+
+														<li class="col-sm-3">
+
+															<h6>
+																<i class="fa fa-plus" /> #{value.designation}
+															</h6>
+														</li>
+
+														<li class="col-sm-9">
+
+															<div class="progress">
+
+																<div class="progress-bar" role="progressbar"
+																	aria-valuenow="#{value.rating}" aria-valuemin="0"
+																	aria-valuemax="100" style="width: #{value.rating}%"></div>
+															</div>
+														</li>
+													</ul>
+												</ui:repeat>
+
+
+
+
+											</div>
+										</div>
+									</div>
+									<!-- Experiences -->
+									<div class="col-md-8">
+
+
+										<div class="sidebar">
+
+
+											<h5 class="main-title">Experiences</h5>
+
+											<div class="job-skills">
+
+
+												<div class="row">
+													<ui:repeat
+														value="#{candidateBean.viewingCandidate.experiences.toArray()}"
+														var="value">
+														<div class="col-sm-3">
+															<div class="uou-block-8d">
+																<i class="fa fa-paper-plane-o"></i>
+																<h5>#{value.designation}</h5>
+																<p>#{value.description}</p>
+																<span> <h:outputText value="#{value.startDate}">
+																		<f:convertDateTime pattern="yyyy-MM-dd" />
+																	</h:outputText></span> - <span><h:outputText value="#{value.endDate}">
+																		<f:convertDateTime pattern="yyyy-MM-dd" />
+																	</h:outputText></span>
+
+															</div>
+															<!-- end .uou-block-8d -->
+														</div>
+													</ui:repeat>
+
+
+												</div>
+
+
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<ui:include src="/resources/Template/Footer.xhtml" />
+</body>
+</html>

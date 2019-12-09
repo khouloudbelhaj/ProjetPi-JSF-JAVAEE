@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<f:metadata>
+	<!-- <f:viewAction action="#{candidateBean.redirectLogin}" /> -->
+	<f:viewAction action="#{candidateBean.enterpriseList}" />
+</f:metadata>
+<h:head></h:head>
+<ui:include src="/resources/Template/Header.xhtml" />
+<body>
+	<hr></hr>
+	<div class="container" style="background-color: white;">
+		<div class="search-pro">
+
+			<div class="map-search">
+
+				<div class="container">
+
+					<div class="row">
+						<h:form>
+							<div class="form-group">
+								<h:inputText palceholder="Criteria"
+									value="#{candidateBean.criteria}">
+								</h:inputText>
+								<h:commandButton class="btn btn-primary" id="btn"
+									value="Search Professional" action="#" />
+							</div>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr></hr>
+
+		<div class="row">
+			<c:forEach items="#{candidateBean.companies}" var="value">
+
+				<h:form>
+					<h:commandLink action="#{candidateBean.ViewEnterprise(value.companyId)}">
+						<div class="col-md-3">
+
+							<div class="uou-block-service-new">
+
+								<h6>
+									<i class="fa fa-paper-plane-o" />#{value.company_Name}
+								</h6>
+
+								<p>#{value.company_Description}</p>
+							</div>
+						</div>
+					</h:commandLink>
+				</h:form>
+
+			</c:forEach>
+		</div>
+
+	</div>
+	<hr></hr>
+
+
+	<ui:include src="/resources/Template/Footer.xhtml" />
+</body>
+</html>

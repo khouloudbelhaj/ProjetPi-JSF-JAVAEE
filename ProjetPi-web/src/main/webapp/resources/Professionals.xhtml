@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<f:metadata>
+	<!-- <f:viewAction action="#{candidateBean.redirectLogin}" /> -->
+</f:metadata>
+<h:head></h:head>
+<ui:include src="/resources/Template/Header.xhtml" />
+<body>
+	<div class="profile-bnr sub-bnr user-profile-bnr">
+
+		<div class="position-center-center">
+
+			<div class="container">
+
+				<h2>Search Professionals</h2>
+			</div>
+		</div>
+	</div>
+	<!-- Search -->
+
+	<div class="search-pro">
+
+		<div class="map-search">
+
+			<div class="container">
+
+				<div class="row">
+				<h:form>
+						<div class="form-group">
+						<h:inputText palceholder="Criteria" value="#{candidateBean.criteria}">
+						</h:inputText>
+						<h:commandButton class="btn btn-primary" id="btn" value="Search Professional"
+						action="#{candidateBean.searchCandidates()}" />
+					</div>
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Professionals -->
+	<section class="pro-mem">
+
+	<div class="container pb30">
+
+		<h3>Professionals</h3>
+
+		<div class="row">
+
+			<c:forEach items="#{candidateBean.candidates}" var="value">
+
+				<div class="col-sm-3">
+
+					<div class="uou-block-6a">
+						<h:graphicImage
+							value="https://localhost:44341/Content/Uploads/#{value.imageUrl}"
+							alt="#{value.imageUrl}"></h:graphicImage>
+
+						<h6>
+							#{value.firstName} #{value.firstName} <span>#{value.profession}</span>
+						</h6>
+
+						<p>
+							<i class="fa fa-map-marker" /> #{value.address}
+						</p>
+						<c:set var="isFriend" value="false" />
+
+						<!-- <h1>#{isFriend}</h1> -->
+
+						<!-- <ui:repeat value="#{LOGGEDIN_CANDIDATE.candidates1.toArray()}" var="con">
+							<c:if test="#{value.candidateId==con.candidateId}">
+								<c:set var = "isFriend" scope = "session" value = "true"/>
+							</c:if>
+						</ui:repeat> -->
+
+
+						<c:forEach items="#{candidateBean.LOGGEDIN_CANDIDATE.candidates1.toArray()}"
+							var="con">
+
+							<c:if test="${value.candidateId == con.candidateId}">
+
+								<c:set var="isFriend" value="true" />
+							</c:if>
+
+
+
+						</c:forEach>
+
+
+						<h:form>
+							<c:if test="#{isFriend==true}">
+
+
+								<h:commandLink action="#{candidateBean.ViewCandidate(value)}">
+									<i class="material-icons">accessibility</i>
+								</h:commandLink>
+
+								<h:commandLink
+									action="#{candidateBean.unfollowCandidate(value)}">
+									<i class="material-icons">person_add_disabled</i>
+								</h:commandLink>
+
+							</c:if>
+							<c:if test="#{isFriend==false}">
+								<h:commandLink action="#{candidateBean.followCandidate(value)}">
+									<i class="material-icons">add</i>
+								</h:commandLink>
+							</c:if>
+						</h:form>
+						<c:set var="isFriend" value="false" />
+
+
+
+					</div>
+					<!-- end .uou-block-6a -->
+				</div>
+			</c:forEach>
+		</div>
+	</div>
+	</section>
+	<ui:include src="/resources/Template/Footer.xhtml" />
+</body>
+</html>

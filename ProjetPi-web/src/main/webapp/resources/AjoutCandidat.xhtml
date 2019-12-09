@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<ui:include src="/resources/Template/Header.xhtml" />
+<body>
+
+	<div class="container" style="background-color: white;">
+		<h:form id="form">
+			<h:panelGroup>
+				<h:form id="form">
+					<h1>Ajout candidat</h1>
+
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="firstName">First Name</label>
+							<h:inputText id="firstName" class="form-control"
+								value="#{candidateBean.firstName}" />
+						</div>
+						<div class="form-group col-md-6">
+							<label for="lastName">First Name</label>
+							<h:inputText class="form-control" id="lastName"
+								value="#{candidateBean.lastName}" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="DateOfBirth">Date Of Birth Name</label>
+						<h:inputText value="#{candidateBean.dateOfBirthday}">
+							<f:convertDateTime pattern="yyyy-MM-dd" />
+						</h:inputText>
+					</div>
+
+
+					<div class="form-row">
+
+						<div class="form-group col-md-4">
+							<label for="gender">Gender</label>
+							<h:inputText id="gender" value="#{candidateBean.gender}" />
+						</div>
+						<div class="form-group col-md-4">
+							<label for="address">Address</label>
+							<h:inputText id="address" value="#{candidateBean.address}" />
+						</div>
+						<div class="form-group col-md-4">
+							<label for="iamgeurl">Image URL</label>
+							<h:inputText id="imageurl" value="#{candidateBean.imageUrl}" />
+						</div>
+					</div>
+
+					<h:outputText value="bio" />
+					<h:inputText value="#{candidateBean.bio}" />
+					<h:outputText value="email" />
+					<h:inputText value="#{candidateBean.email}" />
+					<h:outputText value="profession" />
+					<h:inputText value="#{candidateBean.profession}" />
+					<h:outputText value="username" />
+					<h:inputText value="#{candidateBean.username}" />
+					<h:outputText value="password" />
+					<h:inputText value="#{candidateBean.password}" />
+
+
+
+					<h:commandButton class="btn btn-primary" id="btn" value="ajout"
+						action="#{candidateBean.ajouterCandidat()}" />
+					<h:message for="btn" />
+
+
+				</h:form>
+
+			</h:panelGroup>
+		</h:form>
+		<ui:include src="/resources/Template/Footer.xhtml" />
+	</div>
+
+
+
+</body>
+</html>

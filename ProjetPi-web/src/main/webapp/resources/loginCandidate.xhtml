@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<f:metadata>
+	<f:viewAction action="#{candidateBean.redirectLoggedIn}" />
+</f:metadata>
+<ui:include src="/resources/Template/Header.xhtml" />
+<body>
+
+	<div class="home-pro">
+
+		<!-- PRO BANNER HEAD -->
+
+		<div class="banr-head">
+			<div>
+				<div class="container-fluid" style="width: 500px">
+
+					<div class="row">
+
+
+
+						<!-- FORM SECTION -->
+
+
+
+						<div class="login-sec">
+
+							<!-- TABS -->
+
+							<div class="uou-tabs accordion-xs">
+
+								<ul class="tabs">
+
+
+
+									<li class="active"><a href="#log-in">Member Login</a></li>
+								</ul>
+
+
+								<!-- LOGIN -->
+								<a href="#log-in" class="accordion-link active last">Member
+									Login</a>
+								<div id="log-in" class="active">
+									<h:form id="form">
+
+										<h:inputText palceholder="Username"
+											value="#{candidateBean.username}" />
+										<h:inputSecret palceholder="Password" 
+											value="#{candidateBean.password}" />
+										<h:commandButton class="btn btn-primary" id="btn"
+											value="Login" action="#{candidateBean.logIn()}" />
+										<h:message for="btn" />
+
+									
+
+										<div class="forget">
+											Forgot your password? <a href="#.">Click Here</a>
+										</div>
+									</h:form>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<ui:include src="/resources/Template/Footer.xhtml" />
+</body>
+</html>
